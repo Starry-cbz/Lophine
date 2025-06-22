@@ -1,0 +1,23 @@
+diff --git a/net/minecraft/server/level/ServerPlayer.java b/net/minecraft/server/level/ServerPlayer.java
+index 1a02b14..1d24847 100644
+--- a/net/minecraft/server/level/ServerPlayer.java
++++ b/net/minecraft/server/level/ServerPlayer.java
+@@ -184,6 +184,7 @@ import net.minecraft.world.scores.ScoreAccess;
+ import net.minecraft.world.scores.ScoreHolder;
+ import net.minecraft.world.scores.Team;
+ import net.minecraft.world.scores.criteria.ObjectiveCriteria;
++import fun.bm.lophine.config.modules.misc.CreativeFlightNoClipConfig;
+ import org.slf4j.Logger;
+ 
+ public class ServerPlayer extends Player implements ca.spottedleaf.moonrise.patches.chunk_system.player.ChunkSystemServerPlayer { // Paper - rewrite chunk system
+@@ -693,6 +694,10 @@ public class ServerPlayer extends Player implements ca.spottedleaf.moonrise.patc
+     }
+ 
+     private boolean noCollisionNoLiquid(ServerLevel level, AABB collisionBox) {
++        // Lophine - Creative flight no-clip
++        if (CreativeFlightNoClipConfig.enabled && this.getAbilities().flying && this.gameMode().isCreative()) {
++            return true;
++        }
+         return level.noCollision(this, collisionBox, true);
+     }
+ 
