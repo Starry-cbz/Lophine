@@ -7,16 +7,17 @@ import java.io.File;
 
 public class VillagerTradeConfig extends Config {
     public static boolean disableVillagerTradeUses = false;
+    private FileConfiguration configuration;
 
     public VillagerTradeConfig(@NotNull File file, @NotNull String name, @NotNull String version) {
         super(file, name, version);
+        this.configuration = getConfiguration();
     }
 
-    @Override
+    // 加载配置文件
     public void load() {
-        FileConfiguration config = getConfig("config");
-        if (config != null) {
-            disableVillagerTradeUses = config.getBoolean("disable-villager-trade-uses", false);
+        if (configuration != null) {
+            disableVillagerTradeUses = configuration.getBoolean("disable-villager-trade-uses", false);
         }
     }
 }
