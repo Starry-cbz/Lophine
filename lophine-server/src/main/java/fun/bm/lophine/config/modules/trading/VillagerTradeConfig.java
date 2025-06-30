@@ -5,12 +5,12 @@ import fun.bm.lophine.config.Config;
 public class VillagerTradeConfig extends Config {
     public static boolean disableVillagerTradeUses = false;
 
-    public VillagerTradeConfig(String name, int version) {
-        super(name, version);
+    public VillagerTradeConfig(String name) {
+        super(name);
     }
 
     @Override
-    public void load() {
+    public void init() {
         disableVillagerTradeUses = getBoolean("disable-villager-trade-uses", false);
     }
 }
