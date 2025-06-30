@@ -11,7 +11,7 @@ public class VillagerTradeConfig extends Config {
 
     public VillagerTradeConfig(@NotNull File file, @NotNull String name, @NotNull String version) {
         super(file, name, version);
-        this.configuration = super.getConfig();
+        this.configuration = getConfig();
     }
 
     // 加载配置文件
