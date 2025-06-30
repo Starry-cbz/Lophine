@@ -2,9 +2,9 @@ name: Lophine CI - ver/1.21.6
 
 on:
   push:
-    branches: [ "ver/1.21.6" ]
+    branches: [ "ver/1.21.6","beta" ]
   pull_request:
-    branches: [ "ver/1.21.6" ]
+    branches: [ "ver/1.21.6","beta" ]
 
 permissions: write-all
 
